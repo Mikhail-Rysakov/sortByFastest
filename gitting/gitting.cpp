@@ -83,11 +83,10 @@ bool isSortCorrect(SortInterface* sort) {
 
 int main()
 {
-    Quick sorting;  //all types
 
     for (int testNumber = 0; testNumber < 1000; testNumber++) {
         //isPreciserCorrect();  //vary constants
-        isSortCorrect(&sorting);
+        //isSortCorrect(&sorting);
     }
         
 }

@@ -6,6 +6,6 @@ int main()
 {
     SortAgregator sa;
     sa.show();
-    std::cout << "start point";
+    
 }
 

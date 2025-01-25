@@ -1,6 +1,6 @@
 ﻿
 #include <iostream>
-#include "Sorts.h"
+#include "SortAgregator.h"
 
 
 bool isPreciserCorrect() {
@@ -80,10 +80,54 @@ bool isSortCorrect(SortInterface* sort) {
     std::cout << "SORTING IS CORRECT" << std::endl;
     return 1;
 }
+#include <iomanip>
+void isCorrectTime(SortInterface* sorting) {
+    //OPTIONS
+    int step = 10;
+    int range[]{ initialN, initialN + 100 };   //100 проходов
+
+    //INPUT (внедрить prolonger), но реально ли?
+    std::cout << " [" << std::setw(3) << "n" << "] " << std::setw(3) << "cycle1" << " " << std::setw(4)
+        << "cycle2" << " = " << "time" << std::endl;
+    for (int n = range[0]; n <= range[1]; n += step) {
+        //взятие среднего значения времени и цикловых переменных
+        std::vector<double> minTimeString{ 0,0,INT_MAX }, maxTimeString{ 0,0,0 };
+        for (int randomizer = 0; randomizer < 100; randomizer++) {
+            //взятие реального фактического значения (в крайне низких значениях ниже точность)
+            std::vector<int> testVector;
+            for (int i = 0; i < n; i++)
+                testVector.push_back(rand() % 10000);
+
+            int minimizingRetests = 1000;
+            std::vector<std::vector<int>> testVectors(minimizingRetests, testVector);   //эта 100 и следующая 100 единые числа
+            std::vector<double> actualTimeString{ 0,0,INT_MAX };
+            for (int minimizer = 0; minimizer < minimizingRetests; minimizer++) {
+                sorting->sortWithTiming(testVectors[minimizer]);
+                if (sorting->getTimerString()[2] < actualTimeString[2])
+                    actualTimeString = sorting->getTimerString();
+            }
+
+            if (actualTimeString[2] < minTimeString[2])
+                minTimeString = actualTimeString;
+            if (actualTimeString[2] > maxTimeString[2])
+                maxTimeString = actualTimeString;
+        }
+
+        std::vector<int> average;
+        for (int i = 0; i < minTimeString.size(); i++)
+            average.push_back((int)(minTimeString[i] + maxTimeString[i]) / 2);
+
+        std::cout << " [" << std::setw(3) << n << "] " << std::setw(3) << average[0] << " " << std::setw(4)
+            << average[1] << " = " << average[2] << std::endl;
+
+    }
+
+}
 
 int main()
 {
-
+    Insert sorting; //all types
+    isCorrectTime(&sorting);
     for (int testNumber = 0; testNumber < 1000; testNumber++) {
         //isPreciserCorrect();  //vary constants
         //isSortCorrect(&sorting);

@@ -130,10 +130,14 @@
     <ClCompile Include="File.cpp" />
     <ClCompile Include="gitting.cpp" />
     <ClCompile Include="LinearEquationsSystem.cpp" />
+    <ClCompile Include="MetaTimer.cpp" />
+    <ClCompile Include="Sorts.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="File.h" />
     <ClInclude Include="LinearEquationsSystem.h" />
+    <ClInclude Include="MetaTimer.h" />
+    <ClInclude Include="Sorts.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

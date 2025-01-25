@@ -1,9 +1,11 @@
 ﻿
 #include <iostream>
-#include "Sorts.h"
+#include "SortAgregator.h"
 
 int main()
 {
+    SortAgregator sa;
+    sa.show();
     std::cout << "start point";
 }
 

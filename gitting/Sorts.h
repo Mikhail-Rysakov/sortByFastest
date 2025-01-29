@@ -16,7 +16,7 @@ public:
     LinearEquationsSystem constants;
     virtual void sort(std::vector<int>& numbers) = 0;
     virtual void sortWithTiming(std::vector<int>& numbers);
-    virtual double getTime(double n) = 0;   //double для корректной работы с большим n в полиморфах
+    virtual double getTime(double n) const = 0;   //double для корректной работы с большим n в полиморфах
     void work(std::vector<int>& numbers);
 };
 
@@ -29,7 +29,7 @@ public:
     Insert();
     //sort without timing
     void sort(std::vector<int>& numbers) override;
-    double getTime(double n) override;
+    double getTime(double n) const override;
 };
 
 class Merge : public SortInterface {
@@ -41,7 +41,7 @@ public:
     Merge();
 
     void sort(std::vector<int>& numbers) override;
-    double getTime(double n) override;
+    double getTime(double n) const override;
 };
 
 class Heap : public SortInterface {
@@ -54,7 +54,7 @@ public:
     Heap();
 
     void sort(std::vector<int>& numbers) override;
-    double getTime(double n) override;
+    double getTime(double n) const override;
 };
 
 class Quick : public SortInterface {
@@ -66,5 +66,5 @@ public:
     Quick();
 
     void sort(std::vector<int>& numbers) override;
-    double getTime(double n) override;
+    double getTime(double n) const override;
 };

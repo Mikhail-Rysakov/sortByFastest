@@ -15,6 +15,6 @@ void File::setMode(bool type) {
     file.open(name);
 }
 
-bool File::isExist() {
+bool File::isExist() const {
     return file.is_open();
 }

@@ -27,7 +27,7 @@ void SortAgregator::sortSorts() {
     intersects.push_back(INT_MAX);
 }
 
-int SortAgregator::intersect(SortInterface* sort1, SortInterface* sort2) {
+int SortAgregator::intersect(SortInterface* sort1, SortInterface* sort2) const {
     //Настройка
     const int LEFT = 0, MIDDLE = 1, RIGHT = 2;
     const double eps = 1;
@@ -68,7 +68,7 @@ void SortAgregator::sortByFastest(std::vector<int>& numbers) {
     if (isConstantsChanged)
         sortSorts();
 }
-void SortAgregator::show() {
+void SortAgregator::show() const {
     for (int i = 0; i < sorts.size(); i++) {
         std::cout << (std::string)typeid(*sorts[i]).name() << "=>" << intersects[i] << ",  ";
     }

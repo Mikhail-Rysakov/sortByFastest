@@ -18,5 +18,5 @@ public:
     //a bit slower, but can add not ++, but += 
     void increaseCycle(int index, int biggerThanOne);
 
-    std::vector<double> getMetaString();
+    std::vector<double> getMetaString() const;
 };

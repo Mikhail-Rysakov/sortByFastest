@@ -45,7 +45,7 @@ void LinearEquationsSystem::replaceString(int strNum, std::vector<double> newStr
     strings[strNum] = newString;
 }
 //(documented in docx)
-int LinearEquationsSystem::isMorePrecise(std::vector<double> string) {
+int LinearEquationsSystem::isMorePrecise(std::vector<double> string) const {
     //don't take too short cycles for accuracy and correctness
     if (string[0] < MIN_LENGTH || string[1] < MIN_LENGTH)   //слишком короткие не уточняют, можно вынести в константы
         return -1;

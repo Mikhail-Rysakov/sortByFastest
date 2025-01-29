@@ -16,7 +16,7 @@ public:
 
     void setMode(bool type);
 
-    bool isExist();
+    bool isExist() const;
 
     //potential amount of types is huge (double, int, string ...), so there is template
     template<typename T>

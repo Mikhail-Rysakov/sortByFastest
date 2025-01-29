@@ -26,7 +26,7 @@ public:
 
     void replaceString(int strNum, std::vector<double> newString);
     ////(documented in docx)
-    int isMorePrecise(std::vector<double> string);
+    int isMorePrecise(std::vector<double> string) const;
     
     void calculateConstantsByGauss();
 };

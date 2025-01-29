@@ -16,13 +16,13 @@ private:
     void sortSorts();
 public:
     //bisection method to find intersection of 2 functions
-    int intersect(SortInterface* sort1, SortInterface* sort2);
+    int intersect(SortInterface* sort1, SortInterface* sort2) const;
 
     SortAgregator();
     
     void sortByFastest(std::vector<int>& numbers);
     //Testing method to check out correctness of final work
-    void show();
+    void show() const;
 };
 
 //function signature for uså

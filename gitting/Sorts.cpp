@@ -69,7 +69,7 @@ Insert::Insert() { polymorphStarterForSon(); }
 void Insert::sort(std::vector<int>& numbers) {
     insert(numbers);
 }
-double Insert::getTime(double n) {
+double Insert::getTime(double n) const {
     return constants[0] * (n - 1) + constants[1] * (((n - 1) * n) / 4);
 }
 
@@ -116,7 +116,7 @@ void Merge::sort(std::vector<int>& numbers) {
     mergeSortRecursive(numbers, 0, numbers.size() - 1);
 }
 //функции среднего времени от данного n
-double Merge::getTime(double n) {
+double Merge::getTime(double n) const {
     return constants[0] * n * log2(n) + constants[1] * n - 1;
 }
 
@@ -158,7 +158,7 @@ Heap::Heap() { polymorphStarterForSon(); }
 void Heap::sort(std::vector<int>& numbers) {
     heap(numbers);
 }
-double Heap::getTime(double n) {
+double Heap::getTime(double n) const {
     return constants[0] * (n / 2) + constants[1] * (n - 1);   //ускоритель относ.quick
 }
 
@@ -188,6 +188,6 @@ Quick::Quick() { polymorphStarterForSon(); }
 void Quick::sort(std::vector<int>& numbers) {
     quickSortRecursive(numbers, 0, numbers.size() - 1);
 }
-double Quick::getTime(double n) {
+double Quick::getTime(double n) const {
     return constants[0] * n + constants[1] * n;
 }

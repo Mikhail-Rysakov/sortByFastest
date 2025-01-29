@@ -28,4 +28,4 @@ void MetaTimer::increaseCycle(int index, int biggerThanOne) {
     metaString[index] += biggerThanOne;
 }
 
-std::vector<double> MetaTimer::getMetaString() { return metaString; }
+std::vector<double> MetaTimer::getMetaString() const { return metaString; }
